@@ -1,0 +1,53 @@
+Movie ticketing api
+
+Stack: node.js, express.js, and mongodb
+==========
+(theatre with rows A, B, and C only)
+==========
+Instructions:
+	npm install
+	npm start
+==========
+
+
+Author: Saatvik Shukla <me@saatvikshukla.com>
+
+====
+Built with Node.JS with express 
+Primary DB : MongoDB, connected with Mongoose (Mongodb hosted on remote cluster) 
+Logger: Morgan
+====
+
+Endpoints
+========
+Method: GET
+Endpoint: /screens/
+Action: Lists all screens present in db
+Output: JSON object
+
+
+Method: GET
+Endpoint: /screens/seats/status/unreserved
+Action: Lists all unreserved seats in A, B and C
+Output: JSON object
+
+
+Method: GET
+Endpoint: /screens/reserve
+Action: Reserves seats based on input
+Sample input: 
+    { "seats": { "B": [1, 2], "C": [ 6, 7] } }
+Output: JSON object
+
+
+Method: POST
+Endpoint: /screens/
+Action: Adds new screen based on input JSON
+Sample input:
+    { "name":"inox", "seatInfo": { "A": { "numberOfSeats": 10, "aisleSeats": [0, 5 ,6, 9] }, "B": { "numberOfSeats": 15, "aisleSeats": [0, 5 ,6, 9] }, "C": { "numberOfSeats": 20, "aisleSeats": [0, 5 ,6, 9] } } }
+Output: JSON object
+
+
+Method: DELETE
+Endpoint: /screens/{screenid}
+Action: Deletes screen by id
